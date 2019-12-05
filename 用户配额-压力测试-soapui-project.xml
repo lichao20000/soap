@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="798b9002-6762-469c-8929-9bc4f6742505" activeEnvironment="Default" name="用户配额-压力测试" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f36348d6-28e6-40fc-9f5d-23927e67e2c7" wsaVersion="NONE" name="billingServiceSoap11Binding" type="wsdl" bindingName="{http://webservice.app.tydic.com}billingServiceSoap11Binding" soapVersion="1_1" anonymous="optional" definition="http://132.35.228.22:8098/UserInfoSyncWS?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://132.35.228.22:8098/UserInfoSyncWS?wsdl"><con:part><con:url>http://132.35.228.22:8098/UserInfoSyncWS?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://webservice.app.tydic.com" name="UserInfoSyncWS" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://dom4j.org/xsd" xmlns:ns="http://webservice.app.tydic.com" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+  <wsdl:documentation>billingService</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://webservice.app.tydic.com" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax22="http://dom4j.org/xsd">
+      <xsd:import namespace="http://dom4j.org/xsd"/>
+      <xsd:element name="billingServiceDocumentException">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="ax22:DocumentException" nillable="true" name="DocumentException"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UserInfoService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xs:anyType" nillable="true" name="UserInfoService"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UserInfoServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xs:anyType" nillable="true" name="return"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://dom4j.org/xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="DocumentException">
+        <xsd:sequence>
+          <xsd:element type="xs:string" nillable="true" name="message"/>
+          <xsd:element type="xs:anyType" nillable="true" name="nestedException"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UserInfoServiceRequest">
+    <part name="parameters" element="ns:UserInfoService"/>
+  </wsdl:message>
+  <wsdl:message name="UserInfoServiceResponse">
+    <part name="parameters" element="ns:UserInfoServiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="billingServiceDocumentException">
+    <part name="parameters" element="ns:billingServiceDocumentException"/>
+  </wsdl:message>
+  <wsdl:portType name="billingServicePortType">
+    <operation name="UserInfoService">
+      <wsdl:input message="ns:UserInfoServiceRequest" wsaw:Action="urn:UserInfoService"/>
+      <wsdl:output message="ns:UserInfoServiceResponse" wsaw:Action="urn:UserInfoServiceResponse"/>
+      <wsdl:fault name="billingServiceDocumentException" message="ns:billingServiceDocumentException" wsaw:Action="urn:UserInfoServicebillingServiceDocumentException"/>
+    </operation>
+  </wsdl:portType>
+  <wsdl:binding name="billingServiceSoap11Binding" type="ns:billingServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="UserInfoService">
+      <soap:operation soapAction="urn:UserInfoService" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="billingServiceDocumentException">
+        <soap:fault use="literal" name="billingServiceDocumentException"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="billingServiceSoap12Binding" type="ns:billingServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="UserInfoService">
+      <soap12:operation soapAction="urn:UserInfoService" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="billingServiceDocumentException">
+        <soap12:fault use="literal" name="billingServiceDocumentException"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="billingServiceHttpBinding" type="ns:billingServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="UserInfoService">
+      <http:operation location="UserInfoService"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+      <wsdl:fault name="billingServiceDocumentException"/>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="billingService">
+    <wsdl:port name="billingServiceHttpSoap11Endpoint" binding="ns:billingServiceSoap11Binding">
+      <soap:address location="http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="billingServiceHttpSoap12Endpoint" binding="ns:billingServiceSoap12Binding">
+      <soap12:address location="http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="billingServiceHttpEndpoint" binding="ns:billingServiceHttpBinding">
+      <http:address location="http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint></con:endpoints><con:operation id="b193d5f6-1423-4a94-81f8-fa5fdba56a4d" isOneWay="false" action="urn:UserInfoService" name="UserInfoService" bindingOperationName="UserInfoService" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d888ee40-851e-4133-90e0-8a908c827ad2" name="用户配额"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20141225173810</OPERTIME>
+            <MSISDN>${=String.valueOf(10000000000 + (int)(Math.random()*1000000000))}</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20161121000000</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:UserInfoService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="acfd3b3d-dd72-4179-b9e7-f9ffdc0ae852" wsaVersion="NONE" name="billingServiceSoap12Binding" type="wsdl" bindingName="{http://webservice.app.tydic.com}billingServiceSoap12Binding" soapVersion="1_2" anonymous="optional" definition="http://132.35.228.22:8098/UserInfoSyncWS?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://132.35.228.22:8098/UserInfoSyncWS?wsdl"><con:part><con:url>http://132.35.228.22:8098/UserInfoSyncWS?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://webservice.app.tydic.com" name="UserInfoSyncWS" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ax21="http://dom4j.org/xsd" xmlns:ns="http://webservice.app.tydic.com" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl">
+  <wsdl:documentation>billingService</wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://webservice.app.tydic.com" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax22="http://dom4j.org/xsd">
+      <xsd:import namespace="http://dom4j.org/xsd"/>
+      <xsd:element name="billingServiceDocumentException">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="ax22:DocumentException" nillable="true" name="DocumentException"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UserInfoService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xs:anyType" nillable="true" name="UserInfoService"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UserInfoServiceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xs:anyType" nillable="true" name="return"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://dom4j.org/xsd" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="DocumentException">
+        <xsd:sequence>
+          <xsd:element type="xs:string" nillable="true" name="message"/>
+          <xsd:element type="xs:anyType" nillable="true" name="nestedException"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UserInfoServiceRequest">
+    <part name="parameters" element="ns:UserInfoService"/>
+  </wsdl:message>
+  <wsdl:message name="UserInfoServiceResponse">
+    <part name="parameters" element="ns:UserInfoServiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="billingServiceDocumentException">
+    <part name="parameters" element="ns:billingServiceDocumentException"/>
+  </wsdl:message>
+  <wsdl:portType name="billingServicePortType">
+    <operation name="UserInfoService">
+      <wsdl:input message="ns:UserInfoServiceRequest" wsaw:Action="urn:UserInfoService"/>
+      <wsdl:output message="ns:UserInfoServiceResponse" wsaw:Action="urn:UserInfoServiceResponse"/>
+      <wsdl:fault name="billingServiceDocumentException" message="ns:billingServiceDocumentException" wsaw:Action="urn:UserInfoServicebillingServiceDocumentException"/>
+    </operation>
+  </wsdl:portType>
+  <wsdl:binding name="billingServiceSoap11Binding" type="ns:billingServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="UserInfoService">
+      <soap:operation soapAction="urn:UserInfoService" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="billingServiceDocumentException">
+        <soap:fault use="literal" name="billingServiceDocumentException"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="billingServiceSoap12Binding" type="ns:billingServicePortType">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="UserInfoService">
+      <soap12:operation soapAction="urn:UserInfoService" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="billingServiceDocumentException">
+        <soap12:fault use="literal" name="billingServiceDocumentException"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="billingServiceHttpBinding" type="ns:billingServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="UserInfoService">
+      <http:operation location="UserInfoService"/>
+      <wsdl:input>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content type="application/xml" part="parameters"/>
+      </wsdl:output>
+      <wsdl:fault name="billingServiceDocumentException"/>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="billingService">
+    <wsdl:port name="billingServiceHttpSoap11Endpoint" binding="ns:billingServiceSoap11Binding">
+      <soap:address location="http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="billingServiceHttpSoap12Endpoint" binding="ns:billingServiceSoap12Binding">
+      <soap12:address location="http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap12Endpoint"/>
+    </wsdl:port>
+    <wsdl:port name="billingServiceHttpEndpoint" binding="ns:billingServiceHttpBinding">
+      <http:address location="http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpEndpoint"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap12Endpoint</con:endpoint></con:endpoints><con:operation id="868f2f7f-f7e0-42c3-8949-484664980414" isOneWay="false" action="urn:UserInfoService" name="UserInfoService" bindingOperationName="UserInfoService" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4914aca8-3ebd-48a1-9caa-d01f73aab9f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap12Endpoint</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://webservice.app.tydic.com">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:UserInfoService>\r
+         <web:UserInfoService>?</web:UserInfoService>\r
+      </web:UserInfoService>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:UserInfoService"/></con:call></con:operation></con:interface><con:testSuite id="74ffcd91-90cd-4d8b-a36c-9e439f99c01b" name="TestSuite-用户配额"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="c6542c7e-a131-40db-8f85-995ce07b75e7" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UserInfoService TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="c5021e2d-f899-45be-8805-f9f1fbfd7d28" name="无用户数据"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="无用户数据" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20141225173810</OPERTIME>
+            <MSISDN>17777777777</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20161121000000</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="e5a724ba-99c8-4fc8-8ddb-cc6caeb151be" name="有数据，无用户资料类型"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有数据，无用户资料类型" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20141225173810</OPERTIME>
+            <MSISDN>17777777777</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20161121000000</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="64a1a2db-5328-478e-b949-f1181cfc15e7" name="有用户资料类型，无语音配额等属性，操作类型新增"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，无语音配额等属性，操作类型新增" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20141225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20161121000000</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="4616c4e7-728e-4220-94a9-63826171208c" name="有用户资料类型，无语音配额等属性，操作类型删除"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，无语音配额等属性，操作类型删除" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20141225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20161121000000</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="0f8a9937-d36c-4931-a561-dd4c2e733814" name="有用户资料类型，有语音配额属性，操作类型新增，MT>DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有语音配额属性，操作类型新增，MT>DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20181225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20181225173810</EFF_DATE>
+               <EXP_DATE>20501231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="3fd52308-940e-4ea9-9b66-96ca46524f0e" name="有用户资料类型，有语音配额属性，操作类型新增，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有语音配额属性，操作类型新增，MT&lt;DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20171225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20181225173810</EFF_DATE>
+               <EXP_DATE>20501231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="921e17f8-0a9e-4e54-8724-b5234fb06949" name="有用户资料类型，有语音配额属性，操作类型删除，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有语音配额属性，操作类型删除，MT&lt;DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20171225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20181225173810</EFF_DATE>
+               <EXP_DATE>20501231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="2d479057-691f-4872-b0e9-9f42b2ff0a96" name="有用户资料类型，有语音配额属性，操作类型删除，MT>DBMT，失效时间大于当前时间"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有语音配额属性，操作类型删除，MT>DBMT，失效时间大于当前时间" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20191225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20181225173810</EFF_DATE>
+               <EXP_DATE>20501231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="690f4cbe-c8f1-4726-afe3-7a828c2a12ec" name="有用户资料类型，有语音配额属性，操作类型删除，MT>DBMT，失效时间小于当前时间"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有语音配额属性，操作类型删除，MT>DBMT，失效时间小于当前时间" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20191225173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>2</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20181225173810</EFF_DATE>
+               <EXP_DATE>20181231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="41424c2a-0832-4cdb-be2e-85bec326bc66" name="有用户资料类型，有数据配额属性，操作类型新增，MT>DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有数据配额属性，操作类型新增，MT>DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180426173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20181225173810</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="5189f9f0-669a-4789-91aa-de1a565371d2" name="有用户资料类型，有数据配额属性，操作类型新增，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有数据配额属性，操作类型新增，MT&lt;DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180419173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20180419173810</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="016891a5-47aa-4619-bb3e-72a5c698cc05" name="有用户资料类型，有数据配额属性，操作类型删除，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有数据配额属性，操作类型删除，MT&lt;DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180419173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20180419173810</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="98b94f76-0859-4611-bcdc-3e28aa5a3e38" name="有用户资料类型，有数据配额属性，操作类型删除，MT>DBMT，失效时间大于当前时间"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有数据配额属性，操作类型删除，MT>DBMT，失效时间大于当前时间" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180427173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20180419173810</EFF_DATE>
+               <EXP_DATE>20180426173810</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="41bf02df-1036-4523-aa17-e47a8096d4eb" name="有用户资料类型，有数据配额属性，操作类型删除，MT>DBMT，失效时间小于当前时间"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有数据配额属性，操作类型删除，MT>DBMT，失效时间小于当前时间" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180428173810</OPERTIME>
+            <MSISDN>16666666666</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20180419173810</EFF_DATE>
+               <EXP_DATE>20180426173810</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="ed9df97c-bab6-44f9-9427-a2afaf26edf6" name="有用户资料类型，有rg配额属性，操作类型新增，MT>DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有rg配额属性，操作类型新增，MT>DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180427173810</OPERTIME>
+            <MSISDN>15555555555</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>100000</DURATION>
+               <FLUX>100000</FLUX>
+               <EFF_DATE>20180420173810</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+               <RATING_GROUP>11</RATING_GROUP>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="c1fa05a0-0015-4ef7-853c-9df7edff3476" name="有用户资料类型，有rg配额属性，操作类型新增，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有rg配额属性，操作类型新增，MT&lt;DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180419173810</OPERTIME>
+            <MSISDN>15555555555</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>100000</DURATION>
+               <FLUX>100000</FLUX>
+               <EFF_DATE>20180420173810</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+               <RATING_GROUP>11</RATING_GROUP>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="55e3b444-c200-4e1f-b0e9-03f40223caea" name="有用户资料类型，有rg配额属性，操作类型删除，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有rg配额属性，操作类型删除，MT&lt;DBMT" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180418173810</OPERTIME>
+            <MSISDN>15555555555</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>5000</DURATION>
+               <FLUX>5000</FLUX>
+               <EFF_DATE>20180418173810</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+               <RATING_GROUP>11</RATING_GROUP>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a83f4b17-eccb-4a10-b36e-ce49f77e4b20" name="有用户资料类型，有rg配额属性，操作类型删除，MT>DBMT，失效时间大于当前时间"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有rg配额属性，操作类型删除，MT>DBMT，失效时间大于当前时间" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180428173810</OPERTIME>
+            <MSISDN>15555555555</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>5000</DURATION>
+               <FLUX>5000</FLUX>
+               <EFF_DATE>20180418173810</EFF_DATE>
+               <EXP_DATE>20191231235959</EXP_DATE>
+               <RATING_GROUP>11</RATING_GROUP>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="427a51dc-71bd-45e7-9da3-2af352f24201" name="有用户资料类型，有rg配额属性，操作类型删除，MT>DBMT，失效时间小于当前时间"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="有用户资料类型，有rg配额属性，操作类型删除，MT>DBMT，失效时间小于当前时间" id="2c153c05-c68c-4433-8e15-4f3f990bc10f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20180429173810</OPERTIME>
+            <MSISDN>15555555555</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>2</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>5000</DURATION>
+               <FLUX>5000</FLUX>
+               <EFF_DATE>20180418173810</EFF_DATE>
+               <EXP_DATE>20180425173810</EXP_DATE>
+               <RATING_GROUP>11</RATING_GROUP>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="urn:UserInfoService" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="c88515d1-53a9-49ca-a623-2837a06787f5" name="LoadTest-用户配额"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase id="1d1ef5c3-0d8b-4c6b-974c-4b5e099e8885" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase-压力测试" searchProperties="true"><con:settings/><con:testStep type="request" id="91c320f9-baf0-4104-8db0-5711b67072c1" name="用户配额-压力测试"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>billingServiceSoap11Binding</con:interface><con:operation>UserInfoService</con:operation><con:request name="用户配额-压力测试" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="a21ff0d4-3a43-4798-9b9f-c0e54c13f1c5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.28:18333/UserInfoSyncWS/services/billingService.billingServiceHttpSoap11Endpoint</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://webservice.app.tydic.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <CUSTINFOREQUEST>
+         <MSGHEADER>
+            <MSGTYPE>01</MSGTYPE>
+            <RECORDTYPE>232</RECORDTYPE>
+            <VERSION>01</VERSION>
+         </MSGHEADER>
+         <MSGBODY>
+            <SESSIONID>9113110746254212</SESSIONID>
+            <OPERTIME>20141225173810</OPERTIME>
+            <MSISDN>${=String.valueOf(10000000000 + (int)(Math.random()*1000000000))}</MSISDN>
+            <LOC_ID>0022</LOC_ID>
+            <PROVINCE>11</PROVINCE>
+            <QUOTALIST>
+               <OPERATEFLAG>1</OPERATEFLAG>
+               <BUS_TYPE>1</BUS_TYPE>
+               <DURATION>3600</DURATION>
+               <FLUX>5120</FLUX>
+               <EFF_DATE>20161121000000</EFF_DATE>
+               <EXP_DATE>20301231235959</EXP_DATE>
+            </QUOTALIST>
+         </MSGBODY>
+      </CUSTINFOREQUEST>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="3c1df914-b168-4bd0-a38f-c4f4de8cd091" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:UserInfoService"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="1470bf9f-418e-4cdc-bcae-4b3a0c92a3f4" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>50</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>500</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:assertion type="Step Maximum" name="Step Maximum"><con:configuration><name>Step Maximum</name><min-requests>100</min-requests><max-value>3000</max-value><test-step>- Any -</test-step><max-errors>-1</max-errors></con:configuration></con:assertion><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

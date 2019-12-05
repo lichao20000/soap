@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6cdb4adb-6624-4111-a2b4-d9fc81b28ab5" activeEnvironment="Default" name="大王卡-压力测试" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="85c75451-86b1-4f95-af4a-f77aafe953d2" wsaVersion="NONE" name="PhoneSheetCollSerSoapBinding" type="wsdl" bindingName="{http://ws.chinaunicom.cn/PhoneSheetCollSer/}PhoneSheetCollSerSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://132.35.228.22:8098/PhoneSheetCollSer?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://132.35.228.22:8098/PhoneSheetCollSer?wsdl"><con:part><con:url>http://132.35.228.22:8098/PhoneSheetCollSer?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/" name="PhoneSheetCollSer" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.chinaunicom.cn/PhoneSheetCollSer/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/unibssHead" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="UNI_BSS_HEAD">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xsd:string" name="ORIG_DOMAIN"/>
+            <xsd:element type="xsd:string" name="SERVICE_NAME"/>
+            <xsd:element type="xsd:string" name="OPERATE_NAME"/>
+            <xsd:element type="xsd:string" name="ACTION_CODE"/>
+            <xsd:element type="xsd:string" name="ACTION_RELATION"/>
+            <xsd:element name="ROUTING">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element type="xsd:string" name="ROUTE_TYPE"/>
+                  <xsd:element type="xsd:string" name="ROUTE_VALUE"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element type="xsd:string" name="PROC_ID"/>
+            <xsd:element type="xsd:string" name="TRANS_IDO"/>
+            <xsd:element type="xsd:string" name="TRANS_IDH"/>
+            <xsd:element type="xsd:string" name="PROCESS_TIME"/>
+            <xsd:element name="RESPONSE">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element type="xsd:string" name="RSP_TYPE"/>
+                  <xsd:element type="xsd:string" name="RSP_CODE"/>
+                  <xsd:element type="xsd:string" name="RSP_DESC"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="COM_BUS_INFO">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element type="xsd:string" name="OPER_ID"/>
+                  <xsd:element type="xsd:string" name="PROVINCE_CODE"/>
+                  <xsd:element type="xsd:string" name="EPARCHY_CODE"/>
+                  <xsd:element type="xsd:string" name="CITY_CODE"/>
+                  <xsd:element type="xsd:string" name="CHANNEL_ID"/>
+                  <xsd:element type="xsd:string" name="CHANNEL_TYPE"/>
+                  <xsd:element type="xsd:string" name="ACCESS_TYPE"/>
+                  <xsd:element type="xsd:string" name="ORDER_TYPE"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="SP_RESERVE">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element type="xsd:string" name="TRANS_IDC"/>
+                  <xsd:element type="xsd:string" name="CUTOFFDAY"/>
+                  <xsd:element type="xsd:string" name="OSNDUNS"/>
+                  <xsd:element type="xsd:string" name="HSNDUNS"/>
+                  <xsd:element type="xsd:string" name="CONV_ID"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element type="xsd:string" name="TEST_FLAG"/>
+            <xsd:element type="xsd:string" name="MSG_SENDER"/>
+            <xsd:element type="xsd:string" name="MSG_RECEIVER"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/unibssAttached" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="UNI_BSS_ATTACHED">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xsd:string" name="MEDIA_INFO"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/routeDataUptRsp" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="ROUTE_DATA_UPT_RSP">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xsd:string" name="RESP_CODE"/>
+            <xsd:element type="xsd:string" name="RESP_DESC"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/routeDataUptReq" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="ROUTE_DATA_UPT_REQ">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xsd:string" name="SERIAL_NUM"/>
+            <xsd:element type="xsd:string" name="ROUTE_TYPE"/>
+            <xsd:element type="xsd:string" name="ROUTE_VALUE"/>
+            <xsd:element type="xsd:string" name="BROADBAND_ACCOUNT_ID"/>
+            <xsd:element type="xsd:string" name="ACTIVE_TIME"/>
+            <xsd:element type="xsd:string" name="INACTIVE_TIME"/>
+            <xsd:element type="xsd:string" name="MODIFIED_TIME"/>
+            <xsd:element type="xsd:string" name="STATUS"/>
+            <xsd:element type="xsd:string" name="SYSTEM_CODE"/>
+            <xsd:element type="xsd:string" name="PROV_CODE"/>
+            <xsd:element type="xsd:string" name="EPARCHY_CODE"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveRsp" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="APPOINTMENT_ACTIVE_RSP">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xsd:string" name="RESP_CODE"/>
+            <xsd:element type="xsd:string" name="RESP_DESC"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveReq" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="APPOINTMENT_ACTIVE_REQ">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element type="xsd:string" name="ACTIVE_TIME"/>
+            <xsd:element type="xsd:string" name="INACTIVE_TIME"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchem" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://ws.chinaunicom.cn/unibssHead" xmlns:ns2="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveReq" xmlns:ns3="http://ws.chinaunicom.cn/unibssAttached" xmlns:ns4="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveRsp" xmlns:ns5="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/routeDataUptReq" xmlns:ns6="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/routeDataUptRsp">
+      <xsd:import namespace="http://ws.chinaunicom.cn/unibssHead"/>
+      <xsd:import namespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveReq"/>
+      <xsd:import namespace="http://ws.chinaunicom.cn/unibssAttached"/>
+      <xsd:import namespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveRsp"/>
+      <xsd:import namespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/routeDataUptReq"/>
+      <xsd:import namespace="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/routeDataUptRsp"/>
+      <xsd:element name="APPOINTMENT_ACTIVE_INPUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="ns1:UNI_BSS_HEAD"/>
+            <xsd:element name="UNI_BSS_BODY">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element ref="ns2:APPOINTMENT_ACTIVE_REQ"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="ns3:UNI_BSS_ATTACHED"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="APPOINTMENT_ACTIVE_OUTPUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="ns1:UNI_BSS_HEAD"/>
+            <xsd:element name="UNI_BSS_BODY">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element ref="ns4:APPOINTMENT_ACTIVE_RSP"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="ns3:UNI_BSS_ATTACHED"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ROUTE_DATA_UPT_INPUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="ns1:UNI_BSS_HEAD"/>
+            <xsd:element name="UNI_BSS_BODY">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element ref="ns5:ROUTE_DATA_UPT_REQ"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="ns3:UNI_BSS_ATTACHED"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ROUTE_DATA_UPT_OUTPUT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="ns1:UNI_BSS_HEAD"/>
+            <xsd:element name="UNI_BSS_BODY">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element ref="ns6:ROUTE_DATA_UPT_RSP"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element ref="ns3:UNI_BSS_ATTACHED"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="appointmentActiveResponse">
+    <part name="parameters" element="ns1:APPOINTMENT_ACTIVE_OUTPUT"/>
+  </wsdl:message>
+  <wsdl:message name="appointmentActive">
+    <part name="parameters" element="ns1:APPOINTMENT_ACTIVE_INPUT"/>
+  </wsdl:message>
+  <wsdl:message name="routeDataUptResponse">
+    <part name="parameters" element="ns1:ROUTE_DATA_UPT_OUTPUT"/>
+  </wsdl:message>
+  <wsdl:message name="routeDataUpt">
+    <part name="parameters" element="ns1:ROUTE_DATA_UPT_INPUT"/>
+  </wsdl:message>
+  <wsdl:portType name="PhoneSheetCollSer">
+    <operation name="appointmentActive">
+      <wsdl:input name="appointmentActive" message="tns:appointmentActive"/>
+      <wsdl:output name="appointmentActiveResponse" message="tns:appointmentActiveResponse"/>
+    </operation>
+    <operation name="routeDataUpt">
+      <wsdl:input name="routeDataUpt" message="tns:routeDataUpt"/>
+      <wsdl:output name="routeDataUptResponse" message="tns:routeDataUptResponse"/>
+    </operation>
+  </wsdl:portType>
+  <wsdl:binding name="PhoneSheetCollSerSoapBinding" type="tns:PhoneSheetCollSer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="appointmentActive">
+      <soap:operation soapAction="http://ws.chinaunicom.cn/PhoneSheetCollSer/appointmentActive/" style="document"/>
+      <wsdl:input name="appointmentActive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="appointmentActiveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="routeDataUpt">
+      <soap:operation soapAction="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/" style="document"/>
+      <wsdl:input name="routeDataUpt">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="routeDataUptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PhoneSheetCollSer">
+    <wsdl:port name="PhoneSheetCollSerSOAP" binding="tns:PhoneSheetCollSerSoapBinding">
+      <soap:address location="http://127.0.0.1:8098/PhoneSheetCollSer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://127.0.0.1:8098/PhoneSheetCollSer</con:endpoint></con:endpoints><con:operation id="a9ff2095-ed36-4e1e-8d7c-9270beb4fc7d" isOneWay="false" action="http://ws.chinaunicom.cn/PhoneSheetCollSer/appointmentActive/" name="appointmentActive" bindingOperationName="appointmentActive" type="Request-Response" outputName="appointmentActiveResponse" inputName="appointmentActive" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d1940633-e9ab-4732-b8e5-2ecc738fe598" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:8098/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:unib="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody" xmlns:unib1="http://ws.chinaunicom.cn/unibssHead" xmlns:app="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/appointmentActiveReq" xmlns:unib2="http://ws.chinaunicom.cn/unibssAttached">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <unib:APPOINTMENT_ACTIVE_INPUT>\r
+         <unib1:UNI_BSS_HEAD>\r
+            <unib1:ORIG_DOMAIN>?</unib1:ORIG_DOMAIN>\r
+            <unib1:SERVICE_NAME>?</unib1:SERVICE_NAME>\r
+            <unib1:OPERATE_NAME>?</unib1:OPERATE_NAME>\r
+            <unib1:ACTION_CODE>?</unib1:ACTION_CODE>\r
+            <unib1:ACTION_RELATION>?</unib1:ACTION_RELATION>\r
+            <unib1:ROUTING>\r
+               <unib1:ROUTE_TYPE>?</unib1:ROUTE_TYPE>\r
+               <unib1:ROUTE_VALUE>?</unib1:ROUTE_VALUE>\r
+            </unib1:ROUTING>\r
+            <unib1:PROC_ID>?</unib1:PROC_ID>\r
+            <unib1:TRANS_IDO>?</unib1:TRANS_IDO>\r
+            <unib1:TRANS_IDH>?</unib1:TRANS_IDH>\r
+            <unib1:PROCESS_TIME>?</unib1:PROCESS_TIME>\r
+            <unib1:RESPONSE>\r
+               <unib1:RSP_TYPE>?</unib1:RSP_TYPE>\r
+               <unib1:RSP_CODE>?</unib1:RSP_CODE>\r
+               <unib1:RSP_DESC>?</unib1:RSP_DESC>\r
+            </unib1:RESPONSE>\r
+            <unib1:COM_BUS_INFO>\r
+               <unib1:OPER_ID>?</unib1:OPER_ID>\r
+               <unib1:PROVINCE_CODE>?</unib1:PROVINCE_CODE>\r
+               <unib1:EPARCHY_CODE>?</unib1:EPARCHY_CODE>\r
+               <unib1:CITY_CODE>?</unib1:CITY_CODE>\r
+               <unib1:CHANNEL_ID>?</unib1:CHANNEL_ID>\r
+               <unib1:CHANNEL_TYPE>?</unib1:CHANNEL_TYPE>\r
+               <unib1:ACCESS_TYPE>?</unib1:ACCESS_TYPE>\r
+               <unib1:ORDER_TYPE>?</unib1:ORDER_TYPE>\r
+            </unib1:COM_BUS_INFO>\r
+            <unib1:SP_RESERVE>\r
+               <unib1:TRANS_IDC>?</unib1:TRANS_IDC>\r
+               <unib1:CUTOFFDAY>?</unib1:CUTOFFDAY>\r
+               <unib1:OSNDUNS>?</unib1:OSNDUNS>\r
+               <unib1:HSNDUNS>?</unib1:HSNDUNS>\r
+               <unib1:CONV_ID>?</unib1:CONV_ID>\r
+            </unib1:SP_RESERVE>\r
+            <unib1:TEST_FLAG>?</unib1:TEST_FLAG>\r
+            <unib1:MSG_SENDER>?</unib1:MSG_SENDER>\r
+            <unib1:MSG_RECEIVER>?</unib1:MSG_RECEIVER>\r
+         </unib1:UNI_BSS_HEAD>\r
+         <unib:UNI_BSS_BODY>\r
+            <app:APPOINTMENT_ACTIVE_REQ>\r
+               <app:ACTIVE_TIME>?</app:ACTIVE_TIME>\r
+               <app:INACTIVE_TIME>?</app:INACTIVE_TIME>\r
+            </app:APPOINTMENT_ACTIVE_REQ>\r
+         </unib:UNI_BSS_BODY>\r
+         <unib2:UNI_BSS_ATTACHED>\r
+            <unib2:MEDIA_INFO>?</unib2:MEDIA_INFO>\r
+         </unib2:UNI_BSS_ATTACHED>\r
+      </unib:APPOINTMENT_ACTIVE_INPUT>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.chinaunicom.cn/PhoneSheetCollSer/appointmentActive/"/></con:call></con:operation><con:operation id="cfa00fa2-1e50-4bbd-b2d9-205cabd5df9c" isOneWay="false" action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/" name="routeDataUpt" bindingOperationName="routeDataUpt" type="Request-Response" outputName="routeDataUptResponse" inputName="routeDataUpt" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="370da2de-5c78-4084-956e-c25a3dc2eefd" name="大王卡"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns140:DAILY_BROAD_COLL_INPUT xmlns:ns140="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody">
+			<ns1:UNI_BSS_HEAD xmlns:ns1="http://ws.chinaunicom.cn/unibssHead">
+				<ns1:ORIG_DOMAIN>ULTE</ns1:ORIG_DOMAIN>
+				<ns1:SERVICE_NAME>PhoneSheetCollSer</ns1:SERVICE_NAME>
+				<ns1:OPERATE_NAME>dailyBroadColl</ns1:OPERATE_NAME>
+				<ns1:ACTION_CODE>0</ns1:ACTION_CODE>
+				<ns1:ACTION_RELATION>0</ns1:ACTION_RELATION>
+				<ns1:ROUTING>
+					<ns1:ROUTE_TYPE>00</ns1:ROUTE_TYPE>
+					<ns1:ROUTE_VALUE>47</ns1:ROUTE_VALUE>
+				</ns1:ROUTING>
+				<ns1:PROC_ID>foedere1certo</ns1:PROC_ID>
+				<ns1:TRANS_IDO>test20181009</ns1:TRANS_IDO>
+				<ns1:TRANS_IDH>et1carcere</ns1:TRANS_IDH>
+				<ns1:PROCESS_TIME>iovis1rapidum1</ns1:PROCESS_TIME>
+				<ns1:RESPONSE>
+					<ns1:RSP_TYPE>s</ns1:RSP_TYPE>
+					<ns1:RSP_CODE>bell</ns1:RSP_CODE>
+					<ns1:RSP_DESC>flammas1turbine</ns1:RSP_DESC>
+				</ns1:RESPONSE>
+				<ns1:COM_BUS_INFO>
+					<ns1:OPER_ID>hoc1metuens</ns1:OPER_ID>
+					<ns1:PROVINCE_CODE>ac</ns1:PROVINCE_CODE>
+					<ns1:EPARCHY_CODE>spelun</ns1:EPARCHY_CODE>
+					<ns1:CITY_CODE>aris1imponet1honorem</ns1:CITY_CODE>
+					<ns1:CHANNEL_ID>praeterea1aut</ns1:CHANNEL_ID>
+					<ns1:CHANNEL_TYPE>claustr</ns1:CHANNEL_TYPE>
+					<ns1:ACCESS_TYPE>im</ns1:ACCESS_TYPE>
+					<ns1:ORDER_TYPE>qu</ns1:ORDER_TYPE>
+				</ns1:COM_BUS_INFO>
+				<ns1:SP_RESERVE>
+					<ns1:TRANS_IDC>201810091658452906030305908022</ns1:TRANS_IDC>
+					<ns1:CUTOFFDAY>20181009</ns1:CUTOFFDAY>
+					<ns1:OSNDUNS>9900</ns1:OSNDUNS>
+					<ns1:HSNDUNS>4700</ns1:HSNDUNS>
+					<ns1:CONV_ID></ns1:CONV_ID>
+				</ns1:SP_RESERVE>
+				<ns1:TEST_FLAG>c</ns1:TEST_FLAG>
+				<ns1:MSG_SENDER>rate</ns1:MSG_SENDER>
+				<ns1:MSG_RECEIVER>volu</ns1:MSG_RECEIVER>
+			</ns1:UNI_BSS_HEAD>
+			<ns140:UNI_BSS_BODY>
+				<ns138:DAILY_BROAD_COLL_REQ xmlns:ns138="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/dailyBroadCollReq">
+					<ns138:SERVICE_TYPE>faciat1maria</ns138:SERVICE_TYPE>
+					<ns138:ACCT_NBR>et1quisquam</ns138:ACCT_NBR>
+					<ns138:SERIAL_NUMBER>et1soror</ns138:SERIAL_NUMBER>
+					<ns138:PROV_CODE>an</ns138:PROV_CODE>
+					<ns138:EPARCHY_CODE>ventos</ns138:EPARCHY_CODE>
+					<ns138:START_DATE>regina1iovisqu</ns138:START_DATE>
+					<ns138:END_DATE>rapidum1iacula</ns138:END_DATE>
+					<ns138:OPERA_TYPE>i</ns138:OPERA_TYPE>
+					<ns138:UPDATE_DATE>cum1murmurecum</ns138:UPDATE_DATE>
+					<ns138:PARA>
+						<ns138:PARA_ID>in1patriam</ns138:PARA_ID>
+						<ns138:PARA_VALUE>abdidit1atris1hoc</ns138:PARA_VALUE>
+					</ns138:PARA>
+				</ns138:DAILY_BROAD_COLL_REQ>
+			</ns140:UNI_BSS_BODY>
+			<ns2:UNI_BSS_ATTACHED xmlns:ns2="http://ws.chinaunicom.cn/unibssAttached">
+				<ns2:MEDIA_INFO>coniunx1una1cum</ns2:MEDIA_INFO>
+			</ns2:UNI_BSS_ATTACHED>
+		</ns140:DAILY_BROAD_COLL_INPUT>
+	</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="b5813e93-8deb-414b-a40f-fc9edd474bb4" name="TestSuite-大王卡"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="36509a07-d900-47c8-94f5-16968a46110a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="routeDataUpt TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="08c5ac52-3cfc-4ae8-9e78-5d415e4a0aed" name="数据库中存无该AcctNbr"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhoneSheetCollSerSoapBinding</con:interface><con:operation>routeDataUpt</con:operation><con:request name="数据库中存无该AcctNbr" id="f6873aed-6e7f-4c4b-8fe9-da06d06223b9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:18333/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns140:DAILY_BROAD_COLL_INPUT xmlns:ns140="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody">
+			<ns1:UNI_BSS_HEAD xmlns:ns1="http://ws.chinaunicom.cn/unibssHead">
+				<ns1:ORIG_DOMAIN>ULTE</ns1:ORIG_DOMAIN>
+				<ns1:SERVICE_NAME>PhoneSheetCollSer</ns1:SERVICE_NAME>
+				<ns1:OPERATE_NAME>dailyBroadColl</ns1:OPERATE_NAME>
+				<ns1:ACTION_CODE>0</ns1:ACTION_CODE>
+				<ns1:ACTION_RELATION>0</ns1:ACTION_RELATION>
+				<ns1:ROUTING>
+					<ns1:ROUTE_TYPE>00</ns1:ROUTE_TYPE>
+					<ns1:ROUTE_VALUE>47</ns1:ROUTE_VALUE>
+				</ns1:ROUTING>
+				<ns1:PROC_ID>foedere1certo</ns1:PROC_ID>
+				<ns1:TRANS_IDO>test20181009</ns1:TRANS_IDO>
+				<ns1:TRANS_IDH>et1carcere</ns1:TRANS_IDH>
+				<ns1:PROCESS_TIME>iovis1rapidum1</ns1:PROCESS_TIME>
+				<ns1:RESPONSE>
+					<ns1:RSP_TYPE>s</ns1:RSP_TYPE>
+					<ns1:RSP_CODE>bell</ns1:RSP_CODE>
+					<ns1:RSP_DESC>flammas1turbine</ns1:RSP_DESC>
+				</ns1:RESPONSE>
+				<ns1:COM_BUS_INFO>
+					<ns1:OPER_ID>hoc1metuens</ns1:OPER_ID>
+					<ns1:PROVINCE_CODE>ac</ns1:PROVINCE_CODE>
+					<ns1:EPARCHY_CODE>spelun</ns1:EPARCHY_CODE>
+					<ns1:CITY_CODE>aris1imponet1honorem</ns1:CITY_CODE>
+					<ns1:CHANNEL_ID>praeterea1aut</ns1:CHANNEL_ID>
+					<ns1:CHANNEL_TYPE>claustr</ns1:CHANNEL_TYPE>
+					<ns1:ACCESS_TYPE>im</ns1:ACCESS_TYPE>
+					<ns1:ORDER_TYPE>qu</ns1:ORDER_TYPE>
+				</ns1:COM_BUS_INFO>
+				<ns1:SP_RESERVE>
+					<ns1:TRANS_IDC>201810091658452906030305908022</ns1:TRANS_IDC>
+					<ns1:CUTOFFDAY>20181009</ns1:CUTOFFDAY>
+					<ns1:OSNDUNS>9900</ns1:OSNDUNS>
+					<ns1:HSNDUNS>4700</ns1:HSNDUNS>
+					<ns1:CONV_ID></ns1:CONV_ID>
+				</ns1:SP_RESERVE>
+				<ns1:TEST_FLAG>c</ns1:TEST_FLAG>
+				<ns1:MSG_SENDER>rate</ns1:MSG_SENDER>
+				<ns1:MSG_RECEIVER>volu</ns1:MSG_RECEIVER>
+			</ns1:UNI_BSS_HEAD>
+			<ns140:UNI_BSS_BODY>
+				<ns138:DAILY_BROAD_COLL_REQ xmlns:ns138="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/dailyBroadCollReq">
+					<ns138:SERVICE_TYPE>88888888</ns138:SERVICE_TYPE>
+					<ns138:ACCT_NBR>02100000000</ns138:ACCT_NBR>
+					<ns138:SERIAL_NUMBER>02200001175</ns138:SERIAL_NUMBER>
+					<ns138:PROV_CODE>13</ns138:PROV_CODE>
+					<ns138:EPARCHY_CODE>0022</ns138:EPARCHY_CODE>
+					<ns138:START_DATE>20180908142000</ns138:START_DATE>
+					<ns138:END_DATE>20500908142000</ns138:END_DATE>
+					<ns138:OPERA_TYPE>1</ns138:OPERA_TYPE>
+					<ns138:UPDATE_DATE>20180908142000</ns138:UPDATE_DATE>
+					<ns138:PARA>
+						<ns138:PARA_ID></ns138:PARA_ID>
+						<ns138:PARA_VALUE></ns138:PARA_VALUE>
+					</ns138:PARA>
+				</ns138:DAILY_BROAD_COLL_REQ>
+			</ns140:UNI_BSS_BODY>
+			<ns2:UNI_BSS_ATTACHED xmlns:ns2="http://ws.chinaunicom.cn/unibssAttached">
+				<ns2:MEDIA_INFO></ns2:MEDIA_INFO>
+			</ns2:UNI_BSS_ATTACHED>
+		</ns140:DAILY_BROAD_COLL_INPUT>
+	</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="fe42417b-b780-49c0-9d50-42b51c3a623e" name="数据库中存有该AcctNbr，无该类型"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhoneSheetCollSerSoapBinding</con:interface><con:operation>routeDataUpt</con:operation><con:request name="数据库中存有该AcctNbr，无该类型" id="f6873aed-6e7f-4c4b-8fe9-da06d06223b9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns140:DAILY_BROAD_COLL_INPUT xmlns:ns140="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody">
+			<ns1:UNI_BSS_HEAD xmlns:ns1="http://ws.chinaunicom.cn/unibssHead">
+				<ns1:ORIG_DOMAIN>ULTE</ns1:ORIG_DOMAIN>
+				<ns1:SERVICE_NAME>PhoneSheetCollSer</ns1:SERVICE_NAME>
+				<ns1:OPERATE_NAME>dailyBroadColl</ns1:OPERATE_NAME>
+				<ns1:ACTION_CODE>0</ns1:ACTION_CODE>
+				<ns1:ACTION_RELATION>0</ns1:ACTION_RELATION>
+				<ns1:ROUTING>
+					<ns1:ROUTE_TYPE>00</ns1:ROUTE_TYPE>
+					<ns1:ROUTE_VALUE>47</ns1:ROUTE_VALUE>
+				</ns1:ROUTING>
+				<ns1:PROC_ID>foedere1certo</ns1:PROC_ID>
+				<ns1:TRANS_IDO>test20181009</ns1:TRANS_IDO>
+				<ns1:TRANS_IDH>et1carcere</ns1:TRANS_IDH>
+				<ns1:PROCESS_TIME>iovis1rapidum1</ns1:PROCESS_TIME>
+				<ns1:RESPONSE>
+					<ns1:RSP_TYPE>s</ns1:RSP_TYPE>
+					<ns1:RSP_CODE>bell</ns1:RSP_CODE>
+					<ns1:RSP_DESC>flammas1turbine</ns1:RSP_DESC>
+				</ns1:RESPONSE>
+				<ns1:COM_BUS_INFO>
+					<ns1:OPER_ID>hoc1metuens</ns1:OPER_ID>
+					<ns1:PROVINCE_CODE>ac</ns1:PROVINCE_CODE>
+					<ns1:EPARCHY_CODE>spelun</ns1:EPARCHY_CODE>
+					<ns1:CITY_CODE>aris1imponet1honorem</ns1:CITY_CODE>
+					<ns1:CHANNEL_ID>praeterea1aut</ns1:CHANNEL_ID>
+					<ns1:CHANNEL_TYPE>claustr</ns1:CHANNEL_TYPE>
+					<ns1:ACCESS_TYPE>im</ns1:ACCESS_TYPE>
+					<ns1:ORDER_TYPE>qu</ns1:ORDER_TYPE>
+				</ns1:COM_BUS_INFO>
+				<ns1:SP_RESERVE>
+					<ns1:TRANS_IDC>201810091658452906030305908022</ns1:TRANS_IDC>
+					<ns1:CUTOFFDAY>20181009</ns1:CUTOFFDAY>
+					<ns1:OSNDUNS>9900</ns1:OSNDUNS>
+					<ns1:HSNDUNS>4700</ns1:HSNDUNS>
+					<ns1:CONV_ID></ns1:CONV_ID>
+				</ns1:SP_RESERVE>
+				<ns1:TEST_FLAG>c</ns1:TEST_FLAG>
+				<ns1:MSG_SENDER>rate</ns1:MSG_SENDER>
+				<ns1:MSG_RECEIVER>volu</ns1:MSG_RECEIVER>
+			</ns1:UNI_BSS_HEAD>
+			<ns140:UNI_BSS_BODY>
+				<ns138:DAILY_BROAD_COLL_REQ xmlns:ns138="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/dailyBroadCollReq">
+					<ns138:SERVICE_TYPE>88888888</ns138:SERVICE_TYPE>
+					<ns138:ACCT_NBR>03300000000</ns138:ACCT_NBR>
+					<ns138:SERIAL_NUMBER>02200001175</ns138:SERIAL_NUMBER>
+					<ns138:PROV_CODE>13</ns138:PROV_CODE>
+					<ns138:EPARCHY_CODE>0022</ns138:EPARCHY_CODE>
+					<ns138:START_DATE>20180908142000</ns138:START_DATE>
+					<ns138:END_DATE>20500908142000</ns138:END_DATE>
+					<ns138:OPERA_TYPE>1</ns138:OPERA_TYPE>
+					<ns138:UPDATE_DATE>20180908142000</ns138:UPDATE_DATE>
+					<ns138:PARA>
+						<ns138:PARA_ID></ns138:PARA_ID>
+						<ns138:PARA_VALUE></ns138:PARA_VALUE>
+					</ns138:PARA>
+				</ns138:DAILY_BROAD_COLL_REQ>
+			</ns140:UNI_BSS_BODY>
+			<ns2:UNI_BSS_ATTACHED xmlns:ns2="http://ws.chinaunicom.cn/unibssAttached">
+				<ns2:MEDIA_INFO></ns2:MEDIA_INFO>
+			</ns2:UNI_BSS_ATTACHED>
+		</ns140:DAILY_BROAD_COLL_INPUT>
+	</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="daf63381-d9ad-4050-86f9-cdadaa4ff7b4" name="数据库中存有该AcctNbr，存在该类型，MT>DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhoneSheetCollSerSoapBinding</con:interface><con:operation>routeDataUpt</con:operation><con:request name="数据库中存有该AcctNbr，存在该类型，MT>DBMT" id="f6873aed-6e7f-4c4b-8fe9-da06d06223b9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns140:DAILY_BROAD_COLL_INPUT xmlns:ns140="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody">
+			<ns1:UNI_BSS_HEAD xmlns:ns1="http://ws.chinaunicom.cn/unibssHead">
+				<ns1:ORIG_DOMAIN>ULTE</ns1:ORIG_DOMAIN>
+				<ns1:SERVICE_NAME>PhoneSheetCollSer</ns1:SERVICE_NAME>
+				<ns1:OPERATE_NAME>dailyBroadColl</ns1:OPERATE_NAME>
+				<ns1:ACTION_CODE>0</ns1:ACTION_CODE>
+				<ns1:ACTION_RELATION>0</ns1:ACTION_RELATION>
+				<ns1:ROUTING>
+					<ns1:ROUTE_TYPE>00</ns1:ROUTE_TYPE>
+					<ns1:ROUTE_VALUE>47</ns1:ROUTE_VALUE>
+				</ns1:ROUTING>
+				<ns1:PROC_ID>foedere1certo</ns1:PROC_ID>
+				<ns1:TRANS_IDO>test20181009</ns1:TRANS_IDO>
+				<ns1:TRANS_IDH>et1carcere</ns1:TRANS_IDH>
+				<ns1:PROCESS_TIME>iovis1rapidum1</ns1:PROCESS_TIME>
+				<ns1:RESPONSE>
+					<ns1:RSP_TYPE>s</ns1:RSP_TYPE>
+					<ns1:RSP_CODE>bell</ns1:RSP_CODE>
+					<ns1:RSP_DESC>flammas1turbine</ns1:RSP_DESC>
+				</ns1:RESPONSE>
+				<ns1:COM_BUS_INFO>
+					<ns1:OPER_ID>hoc1metuens</ns1:OPER_ID>
+					<ns1:PROVINCE_CODE>ac</ns1:PROVINCE_CODE>
+					<ns1:EPARCHY_CODE>spelun</ns1:EPARCHY_CODE>
+					<ns1:CITY_CODE>aris1imponet1honorem</ns1:CITY_CODE>
+					<ns1:CHANNEL_ID>praeterea1aut</ns1:CHANNEL_ID>
+					<ns1:CHANNEL_TYPE>claustr</ns1:CHANNEL_TYPE>
+					<ns1:ACCESS_TYPE>im</ns1:ACCESS_TYPE>
+					<ns1:ORDER_TYPE>qu</ns1:ORDER_TYPE>
+				</ns1:COM_BUS_INFO>
+				<ns1:SP_RESERVE>
+					<ns1:TRANS_IDC>201810091658452906030305908022</ns1:TRANS_IDC>
+					<ns1:CUTOFFDAY>20181009</ns1:CUTOFFDAY>
+					<ns1:OSNDUNS>9900</ns1:OSNDUNS>
+					<ns1:HSNDUNS>4700</ns1:HSNDUNS>
+					<ns1:CONV_ID></ns1:CONV_ID>
+				</ns1:SP_RESERVE>
+				<ns1:TEST_FLAG>c</ns1:TEST_FLAG>
+				<ns1:MSG_SENDER>rate</ns1:MSG_SENDER>
+				<ns1:MSG_RECEIVER>volu</ns1:MSG_RECEIVER>
+			</ns1:UNI_BSS_HEAD>
+			<ns140:UNI_BSS_BODY>
+				<ns138:DAILY_BROAD_COLL_REQ xmlns:ns138="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/dailyBroadCollReq">
+					<ns138:SERVICE_TYPE>88888888</ns138:SERVICE_TYPE>
+					<ns138:ACCT_NBR>02200000000</ns138:ACCT_NBR>
+					<ns138:SERIAL_NUMBER>02200001175</ns138:SERIAL_NUMBER>
+					<ns138:PROV_CODE>13</ns138:PROV_CODE>
+					<ns138:EPARCHY_CODE>0022</ns138:EPARCHY_CODE>
+					<ns138:START_DATE>20180908142000</ns138:START_DATE>
+					<ns138:END_DATE>20190408142000</ns138:END_DATE>
+					<ns138:OPERA_TYPE>3</ns138:OPERA_TYPE>
+					<ns138:UPDATE_DATE>20190408142000</ns138:UPDATE_DATE>
+					<ns138:PARA>
+						<ns138:PARA_ID></ns138:PARA_ID>
+						<ns138:PARA_VALUE></ns138:PARA_VALUE>
+					</ns138:PARA>
+				</ns138:DAILY_BROAD_COLL_REQ>
+			</ns140:UNI_BSS_BODY>
+			<ns2:UNI_BSS_ATTACHED xmlns:ns2="http://ws.chinaunicom.cn/unibssAttached">
+				<ns2:MEDIA_INFO></ns2:MEDIA_INFO>
+			</ns2:UNI_BSS_ATTACHED>
+		</ns140:DAILY_BROAD_COLL_INPUT>
+	</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="b7ef057d-c5fa-44f2-bd26-7c14ea115f8f" name="数据库中存有该AcctNbr，存在该类型，MT&lt;DBMT"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhoneSheetCollSerSoapBinding</con:interface><con:operation>routeDataUpt</con:operation><con:request name="数据库中存有该AcctNbr，存在该类型，MT&lt;DBMT" id="f6873aed-6e7f-4c4b-8fe9-da06d06223b9"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.22:8098/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns140:DAILY_BROAD_COLL_INPUT xmlns:ns140="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody">
+			<ns1:UNI_BSS_HEAD xmlns:ns1="http://ws.chinaunicom.cn/unibssHead">
+				<ns1:ORIG_DOMAIN>ULTE</ns1:ORIG_DOMAIN>
+				<ns1:SERVICE_NAME>PhoneSheetCollSer</ns1:SERVICE_NAME>
+				<ns1:OPERATE_NAME>dailyBroadColl</ns1:OPERATE_NAME>
+				<ns1:ACTION_CODE>0</ns1:ACTION_CODE>
+				<ns1:ACTION_RELATION>0</ns1:ACTION_RELATION>
+				<ns1:ROUTING>
+					<ns1:ROUTE_TYPE>00</ns1:ROUTE_TYPE>
+					<ns1:ROUTE_VALUE>47</ns1:ROUTE_VALUE>
+				</ns1:ROUTING>
+				<ns1:PROC_ID>foedere1certo</ns1:PROC_ID>
+				<ns1:TRANS_IDO>test20181009</ns1:TRANS_IDO>
+				<ns1:TRANS_IDH>et1carcere</ns1:TRANS_IDH>
+				<ns1:PROCESS_TIME>iovis1rapidum1</ns1:PROCESS_TIME>
+				<ns1:RESPONSE>
+					<ns1:RSP_TYPE>s</ns1:RSP_TYPE>
+					<ns1:RSP_CODE>bell</ns1:RSP_CODE>
+					<ns1:RSP_DESC>flammas1turbine</ns1:RSP_DESC>
+				</ns1:RESPONSE>
+				<ns1:COM_BUS_INFO>
+					<ns1:OPER_ID>hoc1metuens</ns1:OPER_ID>
+					<ns1:PROVINCE_CODE>ac</ns1:PROVINCE_CODE>
+					<ns1:EPARCHY_CODE>spelun</ns1:EPARCHY_CODE>
+					<ns1:CITY_CODE>aris1imponet1honorem</ns1:CITY_CODE>
+					<ns1:CHANNEL_ID>praeterea1aut</ns1:CHANNEL_ID>
+					<ns1:CHANNEL_TYPE>claustr</ns1:CHANNEL_TYPE>
+					<ns1:ACCESS_TYPE>im</ns1:ACCESS_TYPE>
+					<ns1:ORDER_TYPE>qu</ns1:ORDER_TYPE>
+				</ns1:COM_BUS_INFO>
+				<ns1:SP_RESERVE>
+					<ns1:TRANS_IDC>201810091658452906030305908022</ns1:TRANS_IDC>
+					<ns1:CUTOFFDAY>20181009</ns1:CUTOFFDAY>
+					<ns1:OSNDUNS>9900</ns1:OSNDUNS>
+					<ns1:HSNDUNS>4700</ns1:HSNDUNS>
+					<ns1:CONV_ID></ns1:CONV_ID>
+				</ns1:SP_RESERVE>
+				<ns1:TEST_FLAG>c</ns1:TEST_FLAG>
+				<ns1:MSG_SENDER>rate</ns1:MSG_SENDER>
+				<ns1:MSG_RECEIVER>volu</ns1:MSG_RECEIVER>
+			</ns1:UNI_BSS_HEAD>
+			<ns140:UNI_BSS_BODY>
+				<ns138:DAILY_BROAD_COLL_REQ xmlns:ns138="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/dailyBroadCollReq">
+					<ns138:SERVICE_TYPE>88888888</ns138:SERVICE_TYPE>
+					<ns138:ACCT_NBR>02200000000</ns138:ACCT_NBR>
+					<ns138:SERIAL_NUMBER>02200001175</ns138:SERIAL_NUMBER>
+					<ns138:PROV_CODE>13</ns138:PROV_CODE>
+					<ns138:EPARCHY_CODE>0022</ns138:EPARCHY_CODE>
+					<ns138:START_DATE>20180908142000</ns138:START_DATE>
+					<ns138:END_DATE>20501230000000</ns138:END_DATE>
+					<ns138:OPERA_TYPE>3</ns138:OPERA_TYPE>
+					<ns138:UPDATE_DATE>20190308142000</ns138:UPDATE_DATE>
+					<ns138:PARA>
+						<ns138:PARA_ID></ns138:PARA_ID>
+						<ns138:PARA_VALUE></ns138:PARA_VALUE>
+					</ns138:PARA>
+				</ns138:DAILY_BROAD_COLL_REQ>
+			</ns140:UNI_BSS_BODY>
+			<ns2:UNI_BSS_ATTACHED xmlns:ns2="http://ws.chinaunicom.cn/unibssAttached">
+				<ns2:MEDIA_INFO></ns2:MEDIA_INFO>
+			</ns2:UNI_BSS_ATTACHED>
+		</ns140:DAILY_BROAD_COLL_INPUT>
+	</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="2a227143-4953-4624-b192-8f83afa29459" name="LoadTest-大王卡"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase id="eb0d2cae-47a4-4ae1-a404-795a2801867e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase-压力测试" searchProperties="true"><con:settings/><con:testStep type="request" id="82ff2287-eb74-4faa-8ebb-15bfa00ef8b5" name="大王卡-压力测试"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>PhoneSheetCollSerSoapBinding</con:interface><con:operation>routeDataUpt</con:operation><con:request name="大王卡-压力测试" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f296d3d9-7d27-44ef-9d69-67059ebb278b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://132.35.228.26:18333/PhoneSheetCollSer</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Body>
+		<ns140:DAILY_BROAD_COLL_INPUT xmlns:ns140="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody">
+			<ns1:UNI_BSS_HEAD xmlns:ns1="http://ws.chinaunicom.cn/unibssHead">
+				<ns1:ORIG_DOMAIN>ULTE</ns1:ORIG_DOMAIN>
+				<ns1:SERVICE_NAME>PhoneSheetCollSer</ns1:SERVICE_NAME>
+				<ns1:OPERATE_NAME>dailyBroadColl</ns1:OPERATE_NAME>
+				<ns1:ACTION_CODE>0</ns1:ACTION_CODE>
+				<ns1:ACTION_RELATION>0</ns1:ACTION_RELATION>
+				<ns1:ROUTING>
+					<ns1:ROUTE_TYPE>00</ns1:ROUTE_TYPE>
+					<ns1:ROUTE_VALUE>47</ns1:ROUTE_VALUE>
+				</ns1:ROUTING>
+				<ns1:PROC_ID>foedere1certo</ns1:PROC_ID>
+				<ns1:TRANS_IDO>test20181009</ns1:TRANS_IDO>
+				<ns1:TRANS_IDH>et1carcere</ns1:TRANS_IDH>
+				<ns1:PROCESS_TIME>iovis1rapidum1</ns1:PROCESS_TIME>
+				<ns1:RESPONSE>
+					<ns1:RSP_TYPE>s</ns1:RSP_TYPE>
+					<ns1:RSP_CODE>bell</ns1:RSP_CODE>
+					<ns1:RSP_DESC>flammas1turbine</ns1:RSP_DESC>
+				</ns1:RESPONSE>
+				<ns1:COM_BUS_INFO>
+					<ns1:OPER_ID>hoc1metuens</ns1:OPER_ID>
+					<ns1:PROVINCE_CODE>ac</ns1:PROVINCE_CODE>
+					<ns1:EPARCHY_CODE>spelun</ns1:EPARCHY_CODE>
+					<ns1:CITY_CODE>aris1imponet1honorem</ns1:CITY_CODE>
+					<ns1:CHANNEL_ID>praeterea1aut</ns1:CHANNEL_ID>
+					<ns1:CHANNEL_TYPE>claustr</ns1:CHANNEL_TYPE>
+					<ns1:ACCESS_TYPE>im</ns1:ACCESS_TYPE>
+					<ns1:ORDER_TYPE>qu</ns1:ORDER_TYPE>
+				</ns1:COM_BUS_INFO>
+				<ns1:SP_RESERVE>
+					<ns1:TRANS_IDC>201810091658452906030305908022</ns1:TRANS_IDC>
+					<ns1:CUTOFFDAY>20181009</ns1:CUTOFFDAY>
+					<ns1:OSNDUNS>9900</ns1:OSNDUNS>
+					<ns1:HSNDUNS>4700</ns1:HSNDUNS>
+					<ns1:CONV_ID></ns1:CONV_ID>
+				</ns1:SP_RESERVE>
+				<ns1:TEST_FLAG>c</ns1:TEST_FLAG>
+				<ns1:MSG_SENDER>rate</ns1:MSG_SENDER>
+				<ns1:MSG_RECEIVER>volu</ns1:MSG_RECEIVER>
+			</ns1:UNI_BSS_HEAD>
+			<ns140:UNI_BSS_BODY>
+				<ns138:DAILY_BROAD_COLL_REQ xmlns:ns138="http://ws.chinaunicom.cn/PhoneSheetCollSer/unibssBody/dailyBroadCollReq">
+					<ns138:SERVICE_TYPE>88888888</ns138:SERVICE_TYPE>
+					<ns138:ACCT_NBR>${=String.valueOf(10000000000 + (int)(Math.random()*1000000000))}</ns138:ACCT_NBR>
+					<ns138:SERIAL_NUMBER>02200001175</ns138:SERIAL_NUMBER>
+					<ns138:PROV_CODE>13</ns138:PROV_CODE>
+					<ns138:EPARCHY_CODE>0022</ns138:EPARCHY_CODE>
+					<ns138:START_DATE>20180908142000</ns138:START_DATE>
+					<ns138:END_DATE>20500908142000</ns138:END_DATE>
+					<ns138:OPERA_TYPE>1</ns138:OPERA_TYPE>
+					<ns138:UPDATE_DATE>20180908142000</ns138:UPDATE_DATE>
+					<ns138:PARA>
+						<ns138:PARA_ID></ns138:PARA_ID>
+						<ns138:PARA_VALUE></ns138:PARA_VALUE>
+					</ns138:PARA>
+				</ns138:DAILY_BROAD_COLL_REQ>
+			</ns140:UNI_BSS_BODY>
+			<ns2:UNI_BSS_ATTACHED xmlns:ns2="http://ws.chinaunicom.cn/unibssAttached">
+				<ns2:MEDIA_INFO></ns2:MEDIA_INFO>
+			</ns2:UNI_BSS_ATTACHED>
+		</ns140:DAILY_BROAD_COLL_INPUT>
+	</soapenv:Body>
+</soapenv:Envelope>
+]]></con:request><con:assertion type="SOAP Response" id="f7368692-c74d-4ccd-80d2-9c53fef2d32e" name="SOAP Response"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.chinaunicom.cn/PhoneSheetCollSer/routeDataUpt/"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="448afbfc-3786-4af2-8804-11d1fe4d7597" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>50</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>500</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:assertion type="Step Maximum" name="Step Maximum"><con:configuration><name>Step Maximum</name><min-requests>100</min-requests><max-value>3000</max-value><test-step>- Any -</test-step><max-errors>-1</max-errors></con:configuration></con:assertion><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
